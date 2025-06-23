@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoloVos 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #6e0f3c, #2f0e2d);
+      color: #fff5f8;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      text-align: center;
+      margin-top: 2rem;
+      color: #ffd6e7;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+    }
+
+    .carta p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .test .pregunta {
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+
+    .respuesta {
+      background: #ffd1dc;
+      color: #3a003a;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .respuesta:hover {
+      background: #ff9abf;
+    }
+
+    .correcta {
+      background: #a0f0a0 !important;
+    }
+
+    .incorrecta {
+      background: #f08888 !important;
+    }
+
+    .recuerdos img, .rompecabezas img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+
+    #contador {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      color: #ffd6e7;
+    }
+
+    audio {
+      display: block;
+      margin: 2rem auto;
+    }
+
+    .chiste {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-top: 2rem;
+      animation: shake 1s infinite alternate;
+      font-weight: bold;
+    }
+
+    @keyframes shake {
+      from { transform: rotate(-1deg); }
+      to { transform: rotate(1deg); }
+    }
+
+    .preguntas-si-no {
+      text-align: center;
+    }
+
+    .preguntas-si-no button {
+      padding: 0.8rem 1.5rem;
+      margin: 1rem;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      background-color: #ff6b81;
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      section {
+        margin: 1rem;
+        padding: 1.2rem;
+      }
+      .preguntas-si-no button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>SoloVos 💘</h1>
+
+  <section class="carta">
+    <h2>💌 Mi Carta Para Vos</h2>
+    <p>Amor mío,</p>
+    <p>Desde que llegaste a mi vida todo cambió. Esta página es solo un reflejo de lo feliz que me haces. Gracias por ser mi compañero de aventuras, mi risa diaria y mi calma constante. Te amo hoy y siempre ❤️</p>
+  </section>
+
+  <section class="test">
+    <h2>💭 ¿Cuánto me conocés?</h2>
+    <div class="pregunta">¿Cuál es mi postre favorito?</div>
+    <div class="respuesta" onclick="verificar(this, false)">🍓 Frutillas con crema</div>
+    <div class="respuesta" onclick="verificar(this, true)">🍫 Vos</div>
+    <div class="respuesta" onclick="verificar(this, false)">🍮 Flan</div>
+
+    <div class="pregunta">¿Cuál es mi color preferido?</div>
+    <div class="respuesta" onclick="verificar(this, false)">💙 Azul</div>
+    <div class="respuesta" onclick="verificar(this, false)">💜 Lila</div>
+    <div class="respuesta" onclick="verificar(this, false)">❤️ Rojo</div>
+    <div class="respuesta" onclick="verificar(this, true)">🩷 Rosa</div>
+
+    <div class="pregunta">¿Cuál es mi segundo nombre?</div>
+    <div class="respuesta" onclick="verificar(this, false)">Mirta</div>
+    <div class="respuesta" onclick="verificar(this, true)">Marlen</div>
+    <div class="respuesta" onclick="verificar(this, false)">Mia</div>
+    <div class="respuesta" onclick="verificar(this, true)">Mustier</div>
+
+    <div class="pregunta">¿Cuál es mi peli fav?</div>
+    <div class="respuesta" onclick="verificar(this, true)">Mean Girls</div>
+    <div class="respuesta" onclick="verificar(this, false)">son como niños</div>
+    <div class="respuesta" onclick="verificar(this, true)">Diario de una pasion</div>
+    <div class="respuesta" onclick="verificar(this, false)">El rey leon </div>
+  </section>
+
+  <section class="recuerdos">
+    <h2>🖼️ Nuestros Recuerdos</h2>
+    <img src="https://via.placeholder.com/600x400?text=Agregá+acá+nuestra+foto+1" alt="foto1">
+    <img src="https://via.placeholder.com/600x400?text=Agregá+acá+nuestra+foto+2" alt="foto2">
+  </section>
+
+  <section class="rompecabezas">
+    <h2>🧩 Rompecabezas</h2>
+    <img src="https://via.placeholder.com/600x400?text=Rompecabezas+con+foto" alt="rompecabezas">
+    <p>Subí tu imagen y usala para un rompecabezas real online 💖</p>
+  </section>
+
+  <section class="preguntas-si-no">
+    <h2>💘 Preguntas para vos</h2>
+    <p>¿Querés estar conmigo para siempre?</p>
+    <button onclick="alert('¡Sabía que dirías que sí! 😍')">Sí</button>
+    <button class="noButton">No</button>
+
+    <p>¿Me amas más que a la pizza?</p>
+    <button onclick="alert('¡Eso quería escuchar! 🍕💕')">Sí</button>
+    <button class="noButton">No</button>
+
+    <p>¿Pensás en mí todos los días?</p>
+    <button onclick="alert('¡Awww! 😘')">Sí</button>
+    <button class="noButton">No</button>
+
+    <p>¿Me das un besito?</p>
+    <button onclick="alert('¡Muack! 😚')">Sí</button>
+    <button class="noButton">No</button>
+
+    <p>¿Querés ver pelis acurrucados?</p>
+    <button onclick="alert('¡Vamos yaa! 🍿💖')">Sí</button>
+    <button class="noButton">No</button>
+  </section>
+
+  <div id="contador"></div>
+  <p class="chiste">¿Sos Google? Porque encontré todo lo que buscaba 😚</p>
+  
+  <audio autoplay loop>
+    <source src="audio/quimica-mayor.mp3" type="audio/mp3">
+    Tu navegador no soporta música.
+  </audio>
+
+  <script>
+    function verificar(elemento, esCorrecta) {
+      if (esCorrecta) {
+        elemento.classList.add("correcta");
+      } else {
+        elemento.classList.add("incorrecta");
+      }
+    }
+
+    function iniciarContador() {
+      const inicio = new Date('2023-08-08');
+      const hoy = new Date();
+      const diff = hoy - inicio;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById('contador').innerText = `Llevamos ${dias} días de amor eterno 💞`;
+    }
+    iniciarContador();
+
+    const noButtons = document.querySelectorAll(".noButton");
+    noButtons.forEach(btn => {
+      btn.dataset.scale = "1";
+      btn.addEventListener("mouseover", () => {
+        let scale = parseFloat(btn.dataset.scale);
+        scale *= 0.85;
+        btn.dataset.scale = scale;
+        btn.style.transform = `scale(${scale})`;
+        if (scale < 0.2) {
+          btn.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
